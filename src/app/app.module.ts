@@ -6,15 +6,9 @@ import { AppComponent } from './app.component';
 import { SecondMoodComponent } from './second-mood/second-mood.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SecondMoodComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, SecondMoodComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
