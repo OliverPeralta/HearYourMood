@@ -1,0 +1,8 @@
+mat-button-toggle{
+    background-color: #1976d2;
+    color: white;
+}
+
+mat-button-toggle-checked{
+    background-color: green;
+}
