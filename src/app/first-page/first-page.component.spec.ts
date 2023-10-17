@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstPageComponent } from './first-page.component';
 
+
+
 describe('FirstPageComponent', () => {
   let component: FirstPageComponent;
   let fixture: ComponentFixture<FirstPageComponent>;
@@ -19,3 +21,23 @@ describe('FirstPageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+import { NgModule } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+// other imports
+
+@NgModule({
+  declarations: [
+    // Your components
+  ],
+  imports: [
+    // Other modules
+    MatTooltipModule,
+  ],
+})
+export class YourModule { }
+
+
+
+
