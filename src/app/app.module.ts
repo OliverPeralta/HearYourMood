@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SecondMoodComponent } from './second-mood/second-mood.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
+import { MoreOptionsComponent } from './more-options/more-options.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ThirdPageComponent } from './third-page/third-page.component';
     SecondMoodComponent,
     FirstPageComponent,
     ThirdPageComponent,
+    MoreOptionsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatButtonToggleModule,],
   providers: [],

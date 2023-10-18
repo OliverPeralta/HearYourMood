@@ -1,15 +1,20 @@
 .custom-button {
-    position: relative;
-    left: 450px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-  .round-button {
-    border: none;
-    border-radius: 50px; /* You can adjust the value to make the button more or less round */
-    background-color: rgb(40, 40, 71); /* Set the desired background color */
-    color: #ffffff; /* Set the text color */
-    padding: 10px 20px; /* Set the padding as needed */
-    font-size: 16px; /* Set the font size as needed */
-  }
-  
+.round-button {
+  border: none;
+  border-radius: 50px; 
+  background-color: rgb(40, 40, 71); 
+  color: #ffffff; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.round-button.clicked {
+  background-color: #65799b; /* Change the background color when clicked */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a box-shadow effect when clicked */
+}
+

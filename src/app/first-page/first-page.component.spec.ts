@@ -24,12 +24,13 @@ describe('FirstPageComponent', () => {
 
 import { NgModule } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MoreOptionsComponent } from '../more-options/more-options.component';
 
 // other imports
 
 @NgModule({
   declarations: [
-    // Your components
+
   ],
   imports: [
     // Other modules
@@ -37,7 +38,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
 })
 export class YourModule { }
-
 
 
 

@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class FirstPageComponent {
 
+  isClicked: boolean = false;
+
+  showMore: boolean = false;
+
+  toggleMoreOptions() {
+    this.showMore = !this.showMore;
+    this.isClicked = true;
+  }
 }
