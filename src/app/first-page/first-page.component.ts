@@ -13,6 +13,6 @@ export class FirstPageComponent {
 
   toggleMoreOptions() {
     this.showMore = !this.showMore;
-    this.isClicked = true;
+    this.isClicked = !this.isClicked;
   }
 }
