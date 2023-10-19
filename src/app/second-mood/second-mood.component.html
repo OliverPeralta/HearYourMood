@@ -5,17 +5,27 @@
   </div>
 </div>
 
-<div class=".toggle" style="text-align: center;">
-    <mat-button-toggle>failed my exam</mat-button-toggle>
-    <mat-button-toggle>girlfriend dumped me</mat-button-toggle>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 30vh;">
+  <button #button1 class="custom-button square-button" (click)="changeColor(button1)" style="margin-bottom: 20px;">Failed My Exam</button>
+  <button #button2 class="custom-button square-button" (click)="changeColor(button2)">Partner Dumped Me</button>
 </div>
 
 
 <div style="display: flex; justify-content: space-between; padding: 20px;">
-  <button type="button" mat-menu-item class="custom-button">
-    <a routerLink="/first-page"><span>Back</span></a>
+  <!-- Back Button -->
+  <button type="button" class="round-button custom-button round-button.clicked"
+  style="position: fixed; bottom: 30px; left: 30px; text-align: center;">
+    <a routerLink="/first-page"><span style="color: white;">Back</span></a>
   </button>
-  <button type="button" mat-menu-item class="custom-button">
-    <a routerLink="/third-page"><span>Create my playlist</span></a>
+  <!-- Playlist Button -->
+  <button type="button" class="round-button custom-button round-button.clicked"
+  style="position: fixed; bottom: 30px; right: 30px; text-align: center;">
+    <a routerLink="/third-page"><span style="color: white;">Create my playlist</span></a>
   </button>
+
+</div>
+
+<div>
+<footer style="position: fixed; bottom: 0; left: 600px; text-align: center; padding: 20px;">
+  By Carolina Boitel, Elisa Arenas, and Oliver Peralta&nbsp;</footer>
 </div>
