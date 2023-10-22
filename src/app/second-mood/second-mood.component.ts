@@ -24,9 +24,15 @@ export class SecondMoodComponent implements OnInit {
     if (this.selectedFeeling === 'angry') {
       this.feelingImageSrc = 'https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif';
     } else if (this.selectedFeeling === 'sad') {
-      this.feelingImageSrc = 'url_for_sad_image.jpg'; // Replace with the actual URL
+      this.feelingImageSrc ='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWMxaXp4bmZ6cGVremN3MmRjOGVvMmwwY3MzMmIzY24zdTUzcnE5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OUkOIRFZU5MnlQcGX6/giphy.gif';
     } else if (this.selectedFeeling === 'happy') {
-      this.feelingImageSrc = 'https://media4.giphy.com/...'; // URL for the 'happy' feeling
+      this.feelingImageSrc = 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXo0M25hdWt6bDN6Y3JlazZzamExOXpuNDQ0Mmg0YXRzOHI1b21kcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XBGBrBHc2i3iRaWi6d/giphy.gif';
+    } else if (this.selectedFeeling == 'confident'){
+      this.feelingImageSrc = 'https://64.media.tumblr.com/3d27daad028307a05df767065c2baeee/tumblr_mo35preJ6e1rgpyeqo1_250.gif';
+    } else if (this.selectedFeeling == 'sleepy'){
+      this.feelingImageSrc = 'https://i.pinimg.com/originals/61/f1/24/61f12406b4f0f01e4354e182a0533b36.gif';
+    } else if (this.selectedFeeling == 'studious'){
+      this.feelingImageSrc = 'https://media.tenor.com/8plhmX7JP9YAAAAC/study.gif';
     }
 
     // Update the h1 text based on the selected feeling

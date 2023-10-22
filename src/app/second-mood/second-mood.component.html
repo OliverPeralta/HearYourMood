@@ -1,49 +1,9 @@
-<!-- <script>
-  // Function to get URL parameters by name
-  function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-  }
-
-  // Get the feeling parameter from the URL
-  var selectedFeeling = getParameterByName('feeling', 'second-mood?feeling');
-
-  // Update the image based on the selected feeling
-  var imageElement = document.getElementById('feelingImage');
-  if (selectedFeeling === 'angry') {
-    imageElement.src = "https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif";
-  } else if (selectedFeeling === 'sad') {
-    imageElement.src = 'url_for_sad_image.jpg';
-  } else if (selectedFeeling === 'happy') {
-    imageElement.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWMxaXp4bmZ6cGVremN3MmRjOGVvMmwwY3MzMmIzY24zdTUzcnE5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OUkOIRFZU5MnlQcGX6/giphy.gif"
-  }
-
-  // You can also update the h1 text based on the selected feeling
-  var h1Element = document.querySelector('h1');
-  h1Element.textContent = 'What has you feeling ' + selectedFeeling + '?';
-</script> -->
-
-<!-- <div class="content" role="main" style="text-align: center;">
-  <div class="card" style="display: flex; align-items: center; justify-content: center;">
-    <img src="https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif" style="max-width: 130px;">
-    <h1 style="margin: 0; text-align: center;">What has you feeling this way?</h1>
-  </div>
-</div> -->
-
 <div class="content" role="main" style="text-align: center;">
   <div class="card" style="display: flex; align-items: center; justify-content: center;">
     <img [src]="feelingImageSrc" style="max-width: 130px;">
     <h1 style="margin: 0; text-align: center;">{{ h1Text }}</h1>
   </div>
 </div>
-
-<!-- The rest of your Angular template -->
-
 
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 30vh;">
   <button #button1 class="custom-button square-button" (click)="changeColor(button1)" style="margin-bottom: 20px;">Failed My Exam</button>
