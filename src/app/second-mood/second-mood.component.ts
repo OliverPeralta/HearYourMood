@@ -10,6 +10,14 @@ export class SecondMoodComponent implements OnInit {
   selectedFeeling: string = '';
   feelingImageSrc: string = '';
   h1Text: string = '';
+  buttonText: string[] = [];
+
+  feelingToButtonLabel: { [key: string]: string[] } = {
+    angry: ['Failed my exam', 'Partner dumped me'],
+    sad: ['Button A', 'Button B'],
+    happy: ['Button X', 'Button Y', 'Button Z'],
+    // Add more feelings and their corresponding button labels here
+  };
 
   constructor(private route: ActivatedRoute) { }
 
@@ -49,11 +57,19 @@ export class SecondMoodComponent implements OnInit {
 
     // Update the h1 text based on the selected feeling
     this.h1Text = 'What has you feeling ' + this.selectedFeeling + '?';
+    this.buttonText = this.feelingToButtonLabel[this.selectedFeeling] || [];
   }
 
-  changeColor(element: HTMLElement) {
+  // changeColor(element: HTMLElement) {
+  //   const buttons = document.querySelectorAll('.square-button');
+  //   buttons.forEach((button) => button.classList.remove('clicked'));
+  //   element.classList.add('clicked');
+  // }
+  changeColor(event: MouseEvent) {
+    const button = event.target as HTMLElement;
     const buttons = document.querySelectorAll('.square-button');
-    buttons.forEach(button => button.classList.remove('clicked'));
-    element.classList.add('clicked');
+    buttons.forEach((btn) => btn.classList.remove('clicked'));
+    button.classList.add('clicked');
   }
+  
 }
