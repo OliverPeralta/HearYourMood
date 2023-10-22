@@ -13,10 +13,18 @@ export class SecondMoodComponent implements OnInit {
   buttonText: string[] = [];
 
   feelingToButtonLabel: { [key: string]: string[] } = {
-    angry: ['Failed my exam', 'Partner dumped me'],
-    sad: ['Button A', 'Button B'],
-    happy: ['Button X', 'Button Y', 'Button Z'],
-    // Add more feelings and their corresponding button labels here
+    angry: ['Failed my exam', 'Partner dumped me', 'Just got fired'],
+    sad: ['Partner and I broke up', 'Mourning the loss of someone', 'Just feeling down today'],
+    happy: ['Having a good day', 'Accomplished something great', 'Going on vacation'],
+    confident: ['Going on a date tonight', 'Accomplished something great'],
+    sleepy: ['Pulled an all-nighter', "It's gloomy outside"],
+    studious: ['Studying for an upcoming exam', 'Doing homework', 'Reading a good book'],
+    relaxed: ['Getting ready for yoga', 'Just taking it slow', 'Finished all of my responsibilities'],
+    celebratory: ['Celebrating a birthday', 'Night out'],
+    anxious: ['Worried about an upcoming exam', 'Going on a date tonight', 'Just feeling anxious'],
+    romantic: ['Going on a date tonight', "I'm in love"],
+    bored: ['Got nothing to do', 'Alone in my room'],
+    unsure: ['Looking for good vibes', 'Looking for chill vibes', 'Looking for hype vibes']
   };
 
   constructor(private route: ActivatedRoute) { }
@@ -28,7 +36,6 @@ export class SecondMoodComponent implements OnInit {
     });
   }
   updateImage() {
-    // Update the image source based on the selected feeling
     if (this.selectedFeeling === 'angry') {
       this.feelingImageSrc = 'https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif';
     } else if (this.selectedFeeling === 'sad') {
@@ -55,16 +62,10 @@ export class SecondMoodComponent implements OnInit {
       this.feelingImageSrc = 'https://media.tenor.com/FwNcjKpHAvcAAAAi/shrug-molang.gif';
     }
 
-    // Update the h1 text based on the selected feeling
     this.h1Text = 'What has you feeling ' + this.selectedFeeling + '?';
     this.buttonText = this.feelingToButtonLabel[this.selectedFeeling] || [];
   }
 
-  // changeColor(element: HTMLElement) {
-  //   const buttons = document.querySelectorAll('.square-button');
-  //   buttons.forEach((button) => button.classList.remove('clicked'));
-  //   element.classList.add('clicked');
-  // }
   changeColor(event: MouseEvent) {
     const button = event.target as HTMLElement;
     const buttons = document.querySelectorAll('.square-button');
