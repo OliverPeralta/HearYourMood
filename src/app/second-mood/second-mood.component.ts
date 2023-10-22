@@ -11,6 +11,7 @@ export class SecondMoodComponent implements OnInit {
   feelingImageSrc: string = '';
   h1Text: string = '';
   buttonText: string[] = [];
+  selectedButtonText: string = '';
 
   feelingToButtonLabel: { [key: string]: string[] } = {
     angry: ['Failed my exam', 'Partner dumped me', 'Just got fired'],
@@ -71,6 +72,7 @@ export class SecondMoodComponent implements OnInit {
     const buttons = document.querySelectorAll('.square-button');
     buttons.forEach((btn) => btn.classList.remove('clicked'));
     button.classList.add('clicked');
+    this.selectedButtonText = button.textContent || '';
   }
   
 }

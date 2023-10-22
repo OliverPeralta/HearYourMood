@@ -19,7 +19,7 @@
   <!-- Playlist Button -->
   <button type="button" class="round-button custom-button round-button.clicked"
   style="position: fixed; bottom: 30px; right: 30px; text-align: center;">
-    <a routerLink="/third-page"><span style="color: white;">Create my playlist</span></a>
+    <a routerLink="/third-page" [queryParams]="{ buttonClicked: selectedButtonText }"><span style="color: white;">Create my playlist</span></a>
   </button>
 
 </div>
