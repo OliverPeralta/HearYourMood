@@ -1,5 +1,8 @@
-<p>third-page works!</p>
-
+<div class="content" role="main" style="text-align: center;">
+  <div class="card" href="/third-mood?feeling=sad" style="display: flex; align-items: center; justify-content: center;">
+    <img [src]="feelingImageSrc" style="max-width: 130px;">
+  </div>
+</div>
   <!-- Possibly use a filterSong function here to only get certain songs -->
 <div *ngFor="let song of songs">
   <h3>{{ song.title }}</h3>
@@ -10,6 +13,10 @@
 </div>
 
   <!-- Back Button -->
+  <button type="button" class="round-button custom-button round-button.clicked"
+  style="position: fixed; bottom: 30px; left: 1175px; text-align: center;">
+    <a routerLink="/first-mood"><span style="color: white;">Start Over</span></a>
+  </button>
   <button type="button" class="round-button custom-button round-button.clicked"
   style="position: fixed; bottom: 30px; left: 30px; text-align: center;">
     <a routerLink="/second-mood"><span style="color: white;">Back</span></a>
