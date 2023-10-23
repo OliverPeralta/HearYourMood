@@ -3,6 +3,9 @@ import { CsvService } from '../csv.service';
 import { Song } from '../song.model';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-third-page',
@@ -15,7 +18,14 @@ export class ThirdPageComponent {
   songs: Song[] = [];
   selectedButtonText: string = '';
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['Title', 'Artist', 'Genre', 'Duration', 'Mood'];
+  displayedColumns: string[] = [
+    'Title',
+    'Artist',
+    'Genre',
+    'Duration',
+    'Mood',
+    'Actions',
+  ];
 
   feelingToButtonLabel: { [key: string]: string[] } = {
     angry: ['Failed my exam', 'Partner dumped me', 'Just got fired'],

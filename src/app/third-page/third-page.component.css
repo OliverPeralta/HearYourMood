@@ -29,3 +29,7 @@
 .bold-header-row {
   font-weight: bold;
 }
+.full-width {
+  height: 210px;
+  width: 1000px;
+}

@@ -11,6 +11,9 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
 import { MoreOptionsComponent } from './more-options/more-options.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     MoreOptionsComponent,
   ],
   imports: [
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
     BrowserModule,
     MatTableModule,
     AppRoutingModule,
