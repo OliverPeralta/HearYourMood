@@ -4,13 +4,23 @@
   </div>
 </div>
   <!-- Possibly use a filterSong function here to only get certain songs -->
-<div *ngFor="let song of songs">
-  <h3>{{ song.title }}</h3>
-  <p>Artist: {{ song.artist }}</p>
-  <p>Genre: {{ song.genre }}</p>
-  <p>Duration: {{ song.duration }}</p>
-  <p>Mood: {{ song.mood }}</p>
-</div>
+<table>
+  <tr>    
+    <th mat-sort-header="Title">Title</th>
+    <th mat-sort-header="Artist">Artist</th>
+    <th mat-sort-header="Genre">Genre</th>
+    <th mat-sort-header="Duration">Duration</th>
+    <th mat-sort-header="Mood">Mood</th>
+  </tr>
+
+  <tr *ngFor="let song of songs">
+    <td>{{ song.title }}</td>
+    <td>{{ song.artist }}</td>
+    <td>{{ song.genre }}</td>
+    <td>{{ song.duration }}</td>
+    <td>{{song.mood}}</td>
+  </tr>
+</table>
 
   <!-- Back Button -->
   <button type="button" class="round-button custom-button round-button.clicked"
