@@ -1,19 +1,31 @@
 .custom-button {
-    position: relative;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .round-button {
-    border: none;
-    border-radius: 50px; 
-    background-color: rgb(40, 40, 71); 
-    color: #ffffff; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    transition: background-color 0.3s, box-shadow 0.3s;
-  }
-  
+  border: none;
+  border-radius: 50px;
+  background-color: rgb(40, 40, 71);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
 .round-button.clicked {
-    background-color: #65799b; /* Change the background color when clicked */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a box-shadow effect when clicked */
-  }
+  background-color: #65799b; /* Change the background color when clicked */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a box-shadow effect when clicked */
+}
+.playlistTitle {
+  font-size: 16px;
+  color: #333;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.bold-header-row {
+  font-weight: bold;
+}

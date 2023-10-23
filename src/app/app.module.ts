@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatTableModule} from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SecondMoodComponent } from './second-mood/second-mood.component';
@@ -20,7 +20,14 @@ import { HttpClientModule } from '@angular/common/http';
     ThirdPageComponent,
     MoreOptionsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, MatButtonToggleModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    MatTableModule,
+    AppRoutingModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
