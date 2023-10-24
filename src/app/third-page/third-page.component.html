@@ -46,16 +46,16 @@
 <button
   type="button"
   class="round-button custom-button round-button.clicked"
-  style="position: fixed; bottom: 30px; left: 125px; text-align: center"
+  style="position: fixed; bottom: 30px; left: 1625px; text-align: center"
 >
-  <a routerLink="/first-mood"><span style="color: white">Start Over</span></a>
+  <a routerLink="/first-page"><span style="color: white">Start Over</span></a>
 </button>
 <button
   type="button"
   class="round-button custom-button round-button.clicked"
   style="position: fixed; bottom: 30px; left: 30px; text-align: center"
 >
-  <a routerLink="/second-mood"><span style="color: white">Back</span></a>
+  <a routerLink="/second-mood" [queryParams]="{ feeling: selectedFeeling }"><span style="color: white">Back</span></a>
 </button>
 
 <div>
