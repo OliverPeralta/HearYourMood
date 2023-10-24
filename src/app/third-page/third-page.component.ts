@@ -12,12 +12,15 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './third-page.component.html',
   styleUrls: ['./third-page.component.css'],
 })
+
 export class ThirdPageComponent {
   selectedFeeling: string = '';
   feelingImageSrc: string = '';
   songs: Song[] = [];
+  realSongs: any[] = [];
   selectedButtonText: string = '';
   dataSource: MatTableDataSource<any>;
+  papa: any;
   displayedColumns: string[] = [
     'Title',
     'Artist',
@@ -26,6 +29,46 @@ export class ThirdPageComponent {
     'Mood',
     'Actions',
   ];
+
+  genres: { [key: string]: string[] } = {
+    angry: ['Angry'],
+    sad: [
+      'Gloomy',
+      'Breakup',
+      'Failed',
+      'Fired',
+      'Mourning',
+      'Depressed'
+    ],
+    happy: [
+      'Vacation',
+      'GoodDay',
+      'Finished',
+    ],
+    confident: ['Success', 'GoodDay'],
+    sleepy: ['AllNighter'],
+    studious: [
+      'Exam',
+      'Homework',
+      'Reading',
+    ],
+    relaxed: [
+      'Reading',
+      'Yoga',
+      'Slow'
+    ],  
+    celebratory: ['NightOut', 'Birthday'],
+    anxious: [
+      'Anxious',
+    ],
+    romantic: ['Crushing'],
+    bored: ['Bored', 'Alone'],
+    unsure: [
+      'Looking for good vibes',
+      'Looking for chill vibes',
+      'Looking for hype vibes',
+    ],
+  };
 
   feelingToButtonLabel: { [key: string]: string[] } = {
     angry: ['Failed my exam', 'Partner dumped me', 'Just got fired'],
@@ -71,15 +114,117 @@ export class ThirdPageComponent {
   }
 
   ngOnInit() {
-    this.csvService.getCSVData().subscribe((data) => {
-      this.songs = data;
-      this.dataSource = new MatTableDataSource(this.songs);
-      // Perform any operations you need with the fetched data here
-    });
     this.route.queryParams.subscribe((params) => {
       this.selectedFeeling = params['buttonClicked'];
       this.updateImage();
     });
+    // this.csvService.getCSVData().subscribe((data) => {
+    //   this.papa.parse(data, {
+    //     header: false,
+    //     complete: (result: { data: any[] }) => {
+    //       const filteredData = [];
+    //       for (let i = 0; i < result.data.length; i++) {
+    //         const row = result.data[i];
+    //         if (row[5].includes('Gloomy')) {
+    //           filteredData.push(row);
+    //         }
+    //       }
+    //       this.songs = filteredData;
+    //       this.dataSource = new MatTableDataSource(this.songs);
+    //       // Perform any operations you need with the fetched data here
+    //     }
+    //   });
+    // });
+    this.csvService.getCSVData().subscribe((data) => {
+        this.songs = data;
+        let i = 0; 
+        if (this.selectedFeeling === 'angry') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Angry")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'sad') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Breakup") || this.songs.at(i)?.mood.includes("Gloomy") ||
+            this.songs.at(i)?.mood.includes("Failed") || this.songs.at(i)?.mood.includes("Fired") ||
+            this.songs.at(i)?.mood.includes("Mourning") || this.songs.at(i)?.mood.includes("Depressed")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'happy') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Vacation") || this.songs.at(i)?.mood.includes("GoodDay") ||
+              this.songs.at(i)?.mood.includes("Finished")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling == 'confident') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Success") || this.songs.at(i)?.mood.includes("GoodDay")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling == 'sleepy') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("AllNighter")) {
+                this.realSongs.push(this.songs.at(i));
+              }
+          }
+        } 
+        else if (this.selectedFeeling == 'studious') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Exam") || this.songs.at(i)?.mood.includes("Homework") ||
+                this.songs.at(i)?.mood.includes("Reading")) {
+                this.realSongs.push(this.songs.at(i));
+              }
+          }
+        } 
+        else if (this.selectedFeeling === 'relaxed') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Reading") || this.songs.at(i)?.mood.includes("Yoga") ||
+              this.songs.at(i)?.mood.includes("Slow")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'celebratory') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("NightOut") || this.songs.at(i)?.mood.includes("Birthday")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'anxious') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Anxious")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'romantic') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Crushing")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'bored') {
+          for (i = 0; i < this.songs.length; i++) {
+            if (this.songs.at(i)?.mood.includes("Bored") || this.songs.at(i)?.mood.includes("Alone")) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          }
+        } 
+        else if (this.selectedFeeling === 'unsure') {
+          
+        }
+        this.dataSource = new MatTableDataSource(this.realSongs);
+      });
   }
   updateImage() {
     if (this.selectedFeeling === 'angry') {
