@@ -77,7 +77,7 @@ export class ThirdPageComponent {
       // Perform any operations you need with the fetched data here
     });
     this.route.queryParams.subscribe((params) => {
-      this.selectedFeeling = params['feeling'];
+      this.selectedFeeling = params['buttonClicked'];
       this.updateImage();
     });
   }

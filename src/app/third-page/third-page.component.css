@@ -2,7 +2,11 @@
   position: relative;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .round-button {
   border: none;
   border-radius: 50px;
@@ -30,6 +34,9 @@
   font-weight: bold;
 }
 .full-width {
-  height: 210px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 150px;
   width: 1000px;
 }

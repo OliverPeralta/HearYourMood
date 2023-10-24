@@ -1,11 +1,4 @@
 <div class="content" role="main" style="text-align: center">
-  <div
-    class="card"
-    href="/third-mood?feeling=sad"
-    style="display: flex; align-items: center; justify-content: center"
-  >
-    <img [src]="feelingImageSrc" style="max-width: 130px" />
-  </div>
 </div>
 <!-- <div text-align: left>
   <span
@@ -17,18 +10,22 @@
     "
     >My Mix</span
   > -->
-<div>
-  <mat-form-field
+<div
+    class="card-container"
+    style="display: flex; align-items: center; justify-content: center"
+    >
+    <img [src]="feelingImageSrc" style="max-width: 135px" />
+    <mat-form-field
     class="full-width"
-    style="
-      font-size: 90px;
-      font-weight: 250;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      color: rgb(40, 40, 71);
-    "
   >
-    <input matInput placeholder="My Mix" value="My Mix" />
+    <input matInput style="
+    font-size: 110px;
+    font-weight: 250;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(40, 40, 71);
+  "placeholder="" value="My Mix" />
   </mat-form-field>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container
       *ngFor="let column of displayedColumns; let i = index"
@@ -44,33 +41,12 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-</div>
 <!-- Possibly use a filterSong function here to only get certain songs -->
-<!-- <table mat-table>
-    <tr>
-      <th mat-sort-header="Title">Title</th>
-      <th mat-sort-header="Artist">Artist</th>
-      <th mat-sort-header="Genre">Genre</th>
-      <th mat-sort-header="Duration">Duration</th>
-      <th mat-sort-header="Mood">Mood</th>
-    </tr>
 
-    <tr mat-row *ngFor="let song of songs">
-      <ng-container>
-        <td>{{ song.title }}</td>
-        <td>{{ song.artist }}</td>
-        <td>{{ song.genre }}</td>
-        <td>{{ song.duration }}</td>
-        <td>{{ song.mood }}</td>
-      </ng-container>
-    </tr>
-  </table> -->
-
-<!-- Back Button -->
 <button
   type="button"
   class="round-button custom-button round-button.clicked"
-  style="position: fixed; bottom: 30px; left: 1325px; text-align: center"
+  style="position: fixed; bottom: 30px; left: 125px; text-align: center"
 >
   <a routerLink="/first-mood"><span style="color: white">Start Over</span></a>
 </button>
