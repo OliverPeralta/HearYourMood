@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-third-page',
@@ -21,12 +22,7 @@ export class ThirdPageComponent {
   selectedButtonText: string = '';
   dataSource: MatTableDataSource<any>;
   papa: any;
-  displayedColumns: string[] = [
-    'Title',
-    'Artist',
-    'Genre',
-    'Duration',
-  ];
+  displayedColumns: string[] = ['Title', 'Artist', 'Genre', 'Duration'];
 
   genres: { [key: string]: string[] } = {
     angry: ['Angry'],
@@ -89,6 +85,11 @@ export class ThirdPageComponent {
   constructor(private csvService: CsvService, private route: ActivatedRoute) {
     this.dataSource = new MatTableDataSource(this.songs);
   }
+  playlistName = 'My Mix';
+
+  clearInput() {
+    this.playlistName = '';
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
@@ -103,12 +104,14 @@ export class ThirdPageComponent {
       if (this.selectedFeeling === 'angry') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Failed") || this.songs.at(i)?.mood.includes("Breakup") ||
-            this.songs.at(i)?.mood.includes("Fired")) {
+            if (
+              this.songs.at(i)?.mood.includes('Failed') ||
+              this.songs.at(i)?.mood.includes('Breakup') ||
+              this.songs.at(i)?.mood.includes('Fired')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -117,12 +120,14 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'sad') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Breakup") ||
-            this.songs.at(i)?.mood.includes("Mourning") || this.songs.at(i)?.mood.includes("Depressed")) {
+            if (
+              this.songs.at(i)?.mood.includes('Breakup') ||
+              this.songs.at(i)?.mood.includes('Mourning') ||
+              this.songs.at(i)?.mood.includes('Depressed')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -132,28 +137,30 @@ export class ThirdPageComponent {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
             for (i = 0; i < this.songs.length; i++) {
-              if (this.songs.at(i)?.mood.includes("Vacation") || this.songs.at(i)?.mood.includes("GoodDay") ||
-                this.songs.at(i)?.mood.includes("Success")) {
+              if (
+                this.songs.at(i)?.mood.includes('Vacation') ||
+                this.songs.at(i)?.mood.includes('GoodDay') ||
+                this.songs.at(i)?.mood.includes('Success')
+              ) {
                 this.realSongs.push(this.songs.at(i));
               }
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
           }
-          
         }
       } else if (this.selectedFeeling === 'confident') {
-
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Success") || this.songs.at(i)?.mood.includes("DateNight")) {
+            if (
+              this.songs.at(i)?.mood.includes('Success') ||
+              this.songs.at(i)?.mood.includes('DateNight')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -162,11 +169,13 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'sleepy') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("AllNighter") || this.songs.at(i)?.mood.includes("Gloomy")) {
+            if (
+              this.songs.at(i)?.mood.includes('AllNighter') ||
+              this.songs.at(i)?.mood.includes('Gloomy')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -175,12 +184,14 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'studious') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Exam") || this.songs.at(i)?.mood.includes("Homework") ||
-                this.songs.at(i)?.mood.includes("Reading")) {
-                this.realSongs.push(this.songs.at(i));
-              }
-          }
-          else {
+            if (
+              this.songs.at(i)?.mood.includes('Exam') ||
+              this.songs.at(i)?.mood.includes('Homework') ||
+              this.songs.at(i)?.mood.includes('Reading')
+            ) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -189,12 +200,14 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'relaxed') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Finished") || this.songs.at(i)?.mood.includes("Yoga") ||
-              this.songs.at(i)?.mood.includes("Slow")) {
+            if (
+              this.songs.at(i)?.mood.includes('Finished') ||
+              this.songs.at(i)?.mood.includes('Yoga') ||
+              this.songs.at(i)?.mood.includes('Slow')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -203,11 +216,13 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'celebratory') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("NightOut") || this.songs.at(i)?.mood.includes("Birthday")) {
+            if (
+              this.songs.at(i)?.mood.includes('NightOut') ||
+              this.songs.at(i)?.mood.includes('Birthday')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -216,12 +231,14 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'anxious') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Exam") || this.songs.at(i)?.mood.includes("DateNight")
-             || this.songs.at(i)?.mood.includes("Anxious")) {
+            if (
+              this.songs.at(i)?.mood.includes('Exam') ||
+              this.songs.at(i)?.mood.includes('DateNight') ||
+              this.songs.at(i)?.mood.includes('Anxious')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -230,11 +247,13 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'romantic') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Crushing") || this.songs.at(i)?.mood.includes("DateNight")) {
+            if (
+              this.songs.at(i)?.mood.includes('Crushing') ||
+              this.songs.at(i)?.mood.includes('DateNight')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -243,11 +262,13 @@ export class ThirdPageComponent {
       } else if (this.selectedFeeling === 'bored') {
         for (i = 0; i < this.songs.length; i++) {
           if (this.secondMood == '') {
-            if (this.songs.at(i)?.mood.includes("Bored") || this.songs.at(i)?.mood.includes("Alone")) {
+            if (
+              this.songs.at(i)?.mood.includes('Bored') ||
+              this.songs.at(i)?.mood.includes('Alone')
+            ) {
               this.realSongs.push(this.songs.at(i));
             }
-          }
-          else {
+          } else {
             if (this.songs.at(i)?.mood.includes(this.secondMood)) {
               this.realSongs.push(this.songs.at(i));
             }
@@ -258,21 +279,18 @@ export class ThirdPageComponent {
           if (this.secondMood == '') {
             this.realSongs = this.songs;
             break;
-          }
-          else if (this.secondMood == " Looking for good vibes "){
-            if (this.songs.at(i)?.mood.includes("GoodDay")) {
-                this.realSongs.push(this.songs.at(i));
-              }
-          }
-          else if (this.secondMood == " Looking for chill vibes ") {
-            if (this.songs.at(i)?.mood.includes("Gloomy")) {
-                this.realSongs.push(this.songs.at(i));
-              }
-          }
-          else if (this.secondMood == " Looking for hype vibes ") {
-            if ( this.songs.at(i)?.mood.includes("NightOut")) {
-                this.realSongs.push(this.songs.at(i));
-              }
+          } else if (this.secondMood == ' Looking for good vibes ') {
+            if (this.songs.at(i)?.mood.includes('GoodDay')) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          } else if (this.secondMood == ' Looking for chill vibes ') {
+            if (this.songs.at(i)?.mood.includes('Gloomy')) {
+              this.realSongs.push(this.songs.at(i));
+            }
+          } else if (this.secondMood == ' Looking for hype vibes ') {
+            if (this.songs.at(i)?.mood.includes('NightOut')) {
+              this.realSongs.push(this.songs.at(i));
+            }
           }
         }
       }
@@ -307,10 +325,9 @@ export class ThirdPageComponent {
     } else if (this.selectedFeeling === 'happy') {
       this.feelingImageSrc =
         'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXo0M25hdWt6bDN6Y3JlazZzamExOXpuNDQ0Mmg0YXRzOHI1b21kcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XBGBrBHc2i3iRaWi6d/giphy.gif';
-        if (this.secondMood == ' ') {
-          this.secondMood = '';
-        }
-        else if (this.secondMood === ' Accomplished something great ') {
+      if (this.secondMood == ' ') {
+        this.secondMood = '';
+      } else if (this.secondMood === ' Accomplished something great ') {
         this.secondMood = 'Success';
       } else if (this.secondMood === ' Going on vacation ') {
         this.secondMood = 'Vacation';
@@ -334,8 +351,7 @@ export class ThirdPageComponent {
         this.secondMood = '';
       } else if (this.secondMood === ' Pulled an all-nighter ') {
         this.secondMood = 'AllNighter';
-      }
-      else if (this.secondMood === ' It\'s gloomy outside ') {
+      } else if (this.secondMood === " It's gloomy outside ") {
         this.secondMood = 'Gloomy';
       }
     } else if (this.selectedFeeling == 'studious') {
@@ -407,16 +423,15 @@ export class ThirdPageComponent {
     } else if (this.selectedFeeling === 'unsure') {
       this.feelingImageSrc =
         'https://media.tenor.com/FwNcjKpHAvcAAAAi/shrug-molang.gif';
-        if (this.secondMood === ' ') {
-          this.secondMood = '';
-        } else if (this.secondMood === ' Looking for chill vibes ') {
-          this.secondMood = ' Looking for chill vibes ';
-        } else if (this.secondMood === ' Looking for good vibes ') {
-          this.secondMood = ' Looking for good vibes ';
-        }
-        else if (this.secondMood === ' Looking for hype vibes ') {
-          this.secondMood = ' Looking for hype vibes ';
-        }
+      if (this.secondMood === ' ') {
+        this.secondMood = '';
+      } else if (this.secondMood === ' Looking for chill vibes ') {
+        this.secondMood = ' Looking for chill vibes ';
+      } else if (this.secondMood === ' Looking for good vibes ') {
+        this.secondMood = ' Looking for good vibes ';
+      } else if (this.secondMood === ' Looking for hype vibes ') {
+        this.secondMood = ' Looking for hype vibes ';
+      }
     }
   }
 
