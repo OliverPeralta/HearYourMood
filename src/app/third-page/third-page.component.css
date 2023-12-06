@@ -46,3 +46,6 @@
   max-height: 650px; /* Adjust the maximum height as needed */
   overflow: auto;
 }
+.left {
+  margin-left: -30px;
+}
