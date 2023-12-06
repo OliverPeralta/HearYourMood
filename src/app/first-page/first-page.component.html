@@ -193,14 +193,16 @@
         <a
           class="card"
           href="/second-mood?feeling=angry"
+          title="Angry"
         >
-          <img
+        <h1 style="color: black; font-size: 30px;">Angry</h1>
+          <!-- <img
             id="feelingAngry"
             matTooltip="Angry"
             title="Angry"
             position="margin-right"
             src="https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif"
-          />
+          /> -->
         </a>
     
         <!-- Sad -->
@@ -208,14 +210,15 @@
           class="card"
           href="/second-mood?feeling=sad"
         >
-          <img
+        <h1 style="color: black; font-size: 30px;">Sad</h1>
+          <!-- <img
             id="sad"
             matTooltip="Sad"
             title="Sad"
             width="170"
             height="170"
             src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWMxaXp4bmZ6cGVremN3MmRjOGVvMmwwY3MzMmIzY24zdTUzcnE5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OUkOIRFZU5MnlQcGX6/giphy.gif"
-          />
+          /> -->
         </a>
     
         <!-- Happy -->
@@ -223,14 +226,15 @@
           class="card"
           href="/second-mood?feeling=happy"
         >
-          <img
+        <h1 style="color: black; font-size: 30px;">Happy</h1>
+          <!-- <img
             id="feelingHappy"
             matTooltip="Happy"
             title="Happy"
             width="200"
             height="200"
             src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXo0M25hdWt6bDN6Y3JlazZzamExOXpuNDQ0Mmg0YXRzOHI1b21kcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XBGBrBHc2i3iRaWi6d/giphy.gif"
-          />
+          /> -->
         </a>
     
         <!-- Confident -->
@@ -238,29 +242,31 @@
           class="card"
           href="/second-mood?feeling=confident"
         >
-          <img
-            id="feelingConfident"
-            matTooltip="Confident"
-            title="Confident"
-            width="300"
-            height="300"
-            src="https://64.media.tumblr.com/3d27daad028307a05df767065c2baeee/tumblr_mo35preJ6e1rgpyeqo1_250.gif"
-          />
+        <h1 style="color: black; font-size: 30px;">Confident</h1>
+         <!-- <img
+            id="feelingHappy"
+            matTooltip="Happy"
+            title="Happy"
+            width="200"
+            height="200"
+            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXo0M25hdWt6bDN6Y3JlazZzamExOXpuNDQ0Mmg0YXRzOHI1b21kcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XBGBrBHc2i3iRaWi6d/giphy.gif"
+          /> -->
         </a>
     
         <!-- Sleepy -->
         <a
           class="card"
-          href="/second-mood?feeling=sleepy">
+          href="/second-mood?feeling=sleepy"
         >
-          <img
+        <h1 style="color: black; font-size: 30px;">Sleepy</h1>
+          <!-- <img
             id="feelingSleepy"
             matTooltip="Sleepy"
             title="Sleepy"
             width="250"
             height="250"
             src="https://i.pinimg.com/originals/61/f1/24/61f12406b4f0f01e4354e182a0533b36.gif"
-          />
+          /> -->
         </a>
 
         <!-- Studious -->
@@ -268,18 +274,19 @@
           class="card"
           href="/second-mood?feeling=studious"
         >
-          <img
+        <h1 style="color: black; font-size: 30px;">Studious</h1>
+          <!-- <img
             id="feelingStudious"
             matTooltip="Studious"
             title="Studious"
             width="200"
             height="200"
             src="https://media.tenor.com/8plhmX7JP9YAAAAC/study.gif"
-          />
+          /> -->
         </a>
       </div>
 
-      <button type="button" class="round-button custom-button round-button.clicked" [class.clicked]="isClicked" (click)="toggleMoreOptions()">More Options</button>
+      <button type="button" class="round-button custom-button round-button.clicked" [class.clicked]="isClicked" (click)="toggleMoreOptions()">Click Here For More Options</button>
       <app-more-options *ngIf="showMore"></app-more-options>
     
       <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
