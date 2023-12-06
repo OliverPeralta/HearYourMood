@@ -89,15 +89,6 @@ export class ThirdPageComponent {
   constructor(private csvService: CsvService, private route: ActivatedRoute) {
     this.dataSource = new MatTableDataSource(this.songs);
   }
-<<<<<<< HEAD
-=======
-
-  playlistName = 'My Mix';
-
-  clearInput() {
-    this.playlistName = '';
-  }
->>>>>>> 3c181e1 (affordable playlist title changee)
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
