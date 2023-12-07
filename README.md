@@ -16,7 +16,7 @@ Access the directory "HearYourMood" and type
 
 ### npm install
 
-If not installed, install to continue. After that, run 
+If not installed, install to continue. Once ready, run 
 
 ### ng serve
 
