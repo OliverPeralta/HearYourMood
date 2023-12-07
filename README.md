@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Welcome to HearYourMood
 
-This web application was made in the semester of fall 2023 at the University of Florida for the class CEN4721, Human Computer Interaction. Developers were
+This web application was made in the semester of Fall 2023 at the University of Florida for the class CEN4721, Human Computer Interaction. Developers were
 
 Carolina Boitel, Elisa Arenas, and Oliver Peralta
 
