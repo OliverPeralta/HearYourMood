@@ -1,306 +1,324 @@
-
 <p>
-    <style>
-      :host {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-          "Segoe UI Symbol";
-        font-size: 14px;
-        color: #333;
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+  <style>
+    :host {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+      font-size: 14px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 8px 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .toolbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background-color: #acd0e1;
+      color: #201f2c;
+      font-weight: 600;
+    }
+
+    .toolbar img {
+      margin: 0 16px;
+    }
+
+    .content {
+      display: flex;
+      margin: 82px auto 32px;
+      padding: 0 16px;
+      max-width: 960px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .card {
+      all: unset;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      background-color: white;
+      height: 170px;
+      width: 200px;
+      margin: 0 8px 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+      line-height: 24px;
+      overflow: hidden;
+    }
+
+    .card-container .card:not(:last-child) {
+      margin-right: 0;
+    }
+
+    .card.card-small {
+      height: 16px;
+      width: 168px;
+    }
+
+    .card-container .card:not(.highlight-card) {
+      cursor: pointer;
+    }
+
+    .card-container .card:not(.highlight-card):hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-container .card:not(.highlight-card):hover .material-icons path {
+      fill: rgb(105, 103, 103);
+    }
+
+    .card.highlight-card {
+      background-color: #1976d2;
+      color: white;
+      font-weight: 600;
+      border: none;
+      width: auto;
+      min-width: 30%;
+      position: relative;
+    }
+
+    .card.card.highlight-card span {
+      margin-left: 60px;
+    }
+
+    a,
+    a:visited,
+    a:hover {
+      color: #1976d2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #125699;
+    }
+
+    footer {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      line-height: 20px;
+    }
+
+    footer a {
+      display: flex;
+      align-items: center;
+    }
+
+    svg#clouds {
+      position: fixed;
+      bottom: -160px;
+      left: -230px;
+      z-index: -10;
+      width: 1920px;
+      color: #201f2c;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 767px) {
+      .card-container > *:not(.circle-link),
+      .terminal {
+        width: 100%;
       }
-    
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
+
+      .card:not(.highlight-card) {
+        height: 16px;
         margin: 8px 0;
       }
-    
-      p {
-        margin: 0;
-      }
-    
-      .spacer {
-        flex: 1;
-      }
-    
-      .toolbar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        background-color: #acd0e1;
-        color: #201f2c;
-        font-weight: 600;
-      }
-    
-      .toolbar img {
-        margin: 0 16px;
-      }
-    
-      .content {
-        display: flex;
-        margin: 82px auto 32px;
-        padding: 0 16px;
-        max-width: 960px;
-        flex-direction: column;
-        align-items: center;
-      }
 
-      .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 16px;
+      .card.highlight-card span {
+        margin-left: 72px;
       }
-    
-      .card {
-        all: unset;
-        border-radius: 4px;
-        border: 1px solid #eee;
-        background-color: white;
-        height: 170px;
-        width: 200px;
-        margin: 0 8px 16px;
-        padding: 16px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.2s ease-in-out;
-        line-height: 24px;
-        overflow: hidden;
-      }
-    
-      .card-container .card:not(:last-child) {
-        margin-right: 0;
-      }
-    
-      .card.card-small {
-        height: 16px;
-        width: 168px;
-      }
-    
-      .card-container .card:not(.highlight-card) {
-        cursor: pointer;
-      }
+    }
+  </style>
 
-      .card-container .card:not(.highlight-card):hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-      }
+  <!-- Toolbar -->
+</p>
 
-      .card-container .card:not(.highlight-card):hover .material-icons path {
-        fill: rgb(105, 103, 103);
-      }
+<div class="toolbar" role="banner">
+  <img
+    width="25"
+    alt="Hear Your Mood Logo"
+    src="https://th.bing.com/th/id/R.900900e30e70d3db067b784a13a6e942?rik=9fKvHSLLZ66D7A&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fmusic-symbol-transparent%2fmusic-symbol-transparent-14.png&ehk=JjIhxYKoPJfBIhbSu6A1DvfzSRriZ8hD7I59J4QM4G0%3d&risl=&pid=ImgRaw&r=0"
+  />
+  <span style="font-family: monospace">Hear Your Mood</span>
+  <div class="spacer"></div>
+</div>
 
-      .card.highlight-card {
-        background-color: #1976d2;
-        color: white;
-        font-weight: 600;
-        border: none;
-        width: auto;
-        min-width: 30%;
-        position: relative;
-      }
+<div class="content" role="main">
+  <!-- Intro -->
+  <div>
+    <span
+      style="
+        font-size: 120px;
+        font-weight: 300;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: rgb(40, 40, 71);
+      "
+      >Hello Alexa!</span
+    >
+  </div>
 
-      .card.card.highlight-card span {
-        margin-left: 60px;
-      }
-    
-      a,
-      a:visited,
-      a:hover {
-        color: #1976d2;
-        text-decoration: none;
-      }
-    
-      a:hover {
-        color: #125699;
-      }
-    
-      footer {
-        margin-top: 8px;
-        display: flex;
-        align-items: center;
-        line-height: 20px;
-      }
-    
-      footer a {
-        display: flex;
-        align-items: center;
-      }
-    
-      svg#clouds {
-        position: fixed;
-        bottom: -160px;
-        left: -230px;
-        z-index: -10;
-        width: 1920px;
-        color:#201f2c
-      }
-    
-      
-      /* Responsive Styles */
-      @media screen and (max-width: 767px) {
-        .card-container > *:not(.circle-link),
-        .terminal {
-          width: 100%;
-        }
-    
-        .card:not(.highlight-card) {
-          height: 16px;
-          margin: 8px 0;
-        }
-    
-        .card.highlight-card span {
-          margin-left: 72px;
-        }
-      }
+  <!-- Question -->
+  <span
+    style="
+      font-size: 30px;
+      font-weight: 600;
+      font-family: 'Courier New', Courier, monospace;
+      color: rgb(40, 40, 71);
+    "
+    >How are you feeling today?</span
+  >
 
-    </style>
-    
-    <!-- Toolbar -->
-    <div class="toolbar" role="banner">
+  <div class="card-container">
+    <!-- Angry -->
+    <a class="card" href="/second-mood?feeling=angry">
       <img
-        width="25"
-        alt="Hear Your Mood Logo"
-        src="https://th.bing.com/th/id/R.900900e30e70d3db067b784a13a6e942?rik=9fKvHSLLZ66D7A&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fmusic-symbol-transparent%2fmusic-symbol-transparent-14.png&ehk=JjIhxYKoPJfBIhbSu6A1DvfzSRriZ8hD7I59J4QM4G0%3d&risl=&pid=ImgRaw&r=0"
+        id="feelingAngry"
+        matTooltip="Angry"
+        title="Angry"
+        position="margin-right"
+        src="https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif"
       />
-      <span style="font-family:monospace">Hear Your Mood</span>
-      <div class="spacer"></div>
-    </div>
-    
-    <div class="content" role="main">
-      <!-- Intro -->
-      <div>
-        <span style="font-size: 120px; font-weight: 300; font-family:Georgia, 'Times New Roman', Times, serif; color: rgb(40, 40, 71);">Hello Alexa!</span>
-      </div>
-    
-      <!-- Question -->
-      <span style="font-size: 30px; font-weight: 600; font-family:'Courier New', Courier, monospace; color: rgb(40, 40, 71);">How are you feeling today?</span>
-    
-      <div class="card-container">
-        <!-- Angry -->
-        <a
-          class="card"
-          href="/second-mood?feeling=angry"
-        >
-          <img
-            id="feelingAngry"
-            matTooltip="Angry"
-            title="Angry"
-            position="margin-right"
-            src="https://c.tenor.com/8McIGu0Tf_QAAAAj/fire-joypixels.gif"
-          />
-        </a>
-    
-        <!-- Sad -->
-        <a
-          class="card"
-          href="/second-mood?feeling=sad"
-        >
-          <img
-            id="sad"
-            matTooltip="Sad"
-            title="Sad"
-            width="170"
-            height="170"
-            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWMxaXp4bmZ6cGVremN3MmRjOGVvMmwwY3MzMmIzY24zdTUzcnE5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OUkOIRFZU5MnlQcGX6/giphy.gif"
-          />
-        </a>
-    
-        <!-- Happy -->
-        <a
-          class="card"
-          href="/second-mood?feeling=happy"
-        >
-          <img
-            id="feelingHappy"
-            matTooltip="Happy"
-            title="Happy"
-            width="200"
-            height="200"
-            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXo0M25hdWt6bDN6Y3JlazZzamExOXpuNDQ0Mmg0YXRzOHI1b21kcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XBGBrBHc2i3iRaWi6d/giphy.gif"
-          />
-        </a>
-    
-        <!-- Confident -->
-        <a
-          class="card"
-          href="/second-mood?feeling=confident"
-        >
-          <img
-            id="feelingConfident"
-            matTooltip="Confident"
-            title="Confident"
-            width="300"
-            height="300"
-            src="https://64.media.tumblr.com/3d27daad028307a05df767065c2baeee/tumblr_mo35preJ6e1rgpyeqo1_250.gif"
-          />
-        </a>
-    
-        <!-- Sleepy -->
-        <a
-          class="card"
-          href="/second-mood?feeling=sleepy">
-        >
-          <img
-            id="feelingSleepy"
-            matTooltip="Sleepy"
-            title="Sleepy"
-            width="250"
-            height="250"
-            src="https://i.pinimg.com/originals/61/f1/24/61f12406b4f0f01e4354e182a0533b36.gif"
-          />
-        </a>
+    </a>
 
-        <!-- Studious -->
-        <a
-          class="card"
-          href="/second-mood?feeling=studious"
-        >
-          <img
-            id="feelingStudious"
-            matTooltip="Studious"
-            title="Studious"
-            width="200"
-            height="200"
-            src="https://media.tenor.com/8plhmX7JP9YAAAAC/study.gif"
-          />
-        </a>
-      </div>
+    <!-- Sad -->
+    <a class="card" href="/second-mood?feeling=sad">
+      <img
+        id="sad"
+        matTooltip="Sad"
+        title="Sad"
+        width="170"
+        height="170"
+        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWMxaXp4bmZ6cGVremN3MmRjOGVvMmwwY3MzMmIzY24zdTUzcnE5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OUkOIRFZU5MnlQcGX6/giphy.gif"
+      />
+    </a>
 
-      <button type="button" class="round-button custom-button round-button.clicked" [class.clicked]="isClicked" (click)="toggleMoreOptions()">More Options</button>
-      <app-more-options *ngIf="showMore"></app-more-options>
-    
-      <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-        <title>Gray Clouds Background</title>
-        <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#b6d5e1"/>
-      </svg>
+    <!-- Happy -->
+    <a class="card" href="/second-mood?feeling=happy">
+      <img
+        id="feelingHappy"
+        matTooltip="Happy"
+        title="Happy"
+        width="200"
+        height="200"
+        src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXo0M25hdWt6bDN6Y3JlazZzamExOXpuNDQ0Mmg0YXRzOHI1b21kcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XBGBrBHc2i3iRaWi6d/giphy.gif"
+      />
+    </a>
 
-      <div>
-        <footer style="position: relative; bottom: 0; text-align: center; padding: 20px;">
-          Created by Carolina Boitel, Elisa Arenas, and Oliver Peralta&nbsp;</footer>
-        </div>
+    <!-- Confident -->
+    <a class="card" href="/second-mood?feeling=confident">
+      <img
+        id="feelingConfident"
+        matTooltip="Confident"
+        title="Confident"
+        width="300"
+        height="300"
+        src="https://64.media.tumblr.com/3d27daad028307a05df767065c2baeee/tumblr_mo35preJ6e1rgpyeqo1_250.gif"
+      />
+    </a>
 
-    <router-outlet></router-outlet>
-    
-      
-    
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-    <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-    <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-    <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-    <!--  * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-    
+    <!-- Sleepy -->
+    <a class="card" href="/second-mood?feeling=sleepy">
+      >
+      <img
+        id="feelingSleepy"
+        matTooltip="Sleepy"
+        title="Sleepy"
+        width="250"
+        height="250"
+        src="https://i.pinimg.com/originals/61/f1/24/61f12406b4f0f01e4354e182a0533b36.gif"
+      />
+    </a>
+
+    <!-- Studious -->
+    <a class="card" href="/second-mood?feeling=studious">
+      <img
+        id="feelingStudious"
+        matTooltip="Studious"
+        title="Studious"
+        width="200"
+        height="200"
+        src="https://media.tenor.com/8plhmX7JP9YAAAAC/study.gif"
+      />
+    </a>
+  </div>
+
+  <button
+    type="button"
+    class="round-button custom-button round-button.clicked"
+    [class.clicked]="isClicked"
+    (click)="toggleMoreOptions()"
+  >
+    Click Here For More Options
+  </button>
+  <app-more-options *ngIf="showMore"></app-more-options>
+
+  <svg
+    id="clouds"
+    xmlns="http://www.w3.org/2000/svg"
+    width="2611.084"
+    height="485.677"
+    viewBox="0 0 2611.084 485.677"
+  >
+    <title>Gray Clouds Background</title>
+    <path
+      id="Path_39"
+      data-name="Path 39"
+      d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+      transform="translate(142.69 -634.312)"
+      fill="#b6d5e1"
+    />
+  </svg>
+
+  <div>
+    <footer
+      style="position: relative; bottom: 0; text-align: center; padding: 20px"
+    >
+      Created by Carolina Boitel, Elisa Arenas, and Oliver Peralta&nbsp;
+    </footer>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+  <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!--  * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+</div>
