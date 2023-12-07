@@ -14,20 +14,14 @@ To run this web application, use git clone to download the repository locally on
 
 Access the directory "HearYourMood" and type 
 
-#### npm install
+### npm install
 
 If not installed, install to continue. After that, run 
 
-#### ng serve
+### ng serve
 
 With that, you should be able to go on any browser and type in 
 
-#### http://localhost:4200/
+### http://localhost:4200/
 
 to be able to view our web application. Enjoy!
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-By Carolina Boitel, Elisa Arenas, and Oliver Peralta
